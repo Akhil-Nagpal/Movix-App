@@ -6,6 +6,7 @@ import Explore from "./pages/explore/Explore"
 import PageNotFound from "./pages/404/PageNotFound"
 import SearchResult from "./pages/searchResult/SearchResult"
 
+
 export {
     Header, 
     Footer, 
