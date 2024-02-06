@@ -7,6 +7,7 @@ import "./Carousel.scss";
 import ContentWrapper from "../ContentWrapper/ContentWrapper";
 import PosterFallback from "../../assets/no-poster.png"
 import Img from "../lazyLoadImage/Img";
+import Rating from "../Rating/Rating";
 
 function Carousel({ data, loading }) {
 
@@ -14,7 +15,6 @@ function Carousel({ data, loading }) {
     const { url } = useSelector((state) => state.home);
     const navigate = useNavigate();
 
-    const navigation = (direction) => { }
 
     const skItem = () => {
         return (
@@ -32,12 +32,6 @@ function Carousel({ data, loading }) {
     return (
         <div className="carousel">
             <ContentWrapper>
-                <BsFillArrowLeftCircleFill
-                    className="carouselLeftNav arrow"
-                    onClick={() => navigation("left")} />
-                <BsFillArrowRightCircleFill
-                    className="carouselRightNav arrow"
-                    onClick={() => navigation("right")} />
 
                 {!loading ? (
                     <div className="carouselItems">
@@ -50,6 +44,7 @@ function Carousel({ data, loading }) {
 
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
+                                        <Rating rating={item.vote_average.toFixed(1)}/>
                                     </div>
                                     <div className="textBlock">
                                         <div className="title">
